@@ -1,10 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {useGlobalContext} from '../context/AppContext';
-import {MAIN1, MAIN2} from '../utils/constant';
+import {MARKET1, MARKET2} from '../utils/constant';
 
-function Hero() {
+function Market() {
   const {loading} = useGlobalContext();
 
   if (loading) {
@@ -13,21 +12,22 @@ function Hero() {
 
   return (
     <Wrapper>
-      <div className="hero__info-images">
-        <img src={MAIN2} className="hero__cta-img" alt="cta-image1" />
-        <img src={MAIN1} className="hero__cta-img" alt="cta-image2" />
+      <div className="market__info-images">
+        <img src={MARKET1} className="market__cta-img" alt="cta-image1" />
+        <img src={MARKET2} className="market__cta-img" alt="cta-image2" />
       </div>
 
-      <div className="hero__info-p">
+      <div className="market__info-p">
         <h1>
-          우리동네
-          <br /> 중고 직거래 마켓
+          내 근처에서 찾는
+          <br />
+          동네가게
         </h1>
-        <p>동네 주민들과 가깝고 따뜻한 거래를 지금 경험해보세요.</p>
-
-        <Link to="/create">
-          <button className="create__btn"> 나의 물건 판매</button>
-        </Link>
+        <p>
+          우리 동네 가게를 찾고 있나요?
+          <br />
+          동네 주민이 남긴 진짜 후기를 함께 확인해보세요!
+        </p>
       </div>
     </Wrapper>
   );
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fbf7f2;
+  background: #e6f3e6;
   h1 {
     font-size: 2.5rem;
     font-weight: bold;
@@ -49,25 +49,7 @@ const Wrapper = styled.div`
     margin-bottom: 2rem;
   }
 
-  .create__btn {
-    max-width: 200px;
-    padding: 0.5rem 1.8rem;
-    border-radius: 5px;
-    background: #ffa468;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    transition: all 0.3s linear;
-    letter-spacing: 0.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    &:hover {
-      transform: scale(0.95);
-      background: #fb8500;
-    }
-  }
-  .hero__info-images {
+  .market__info-images {
     margin: 0 10rem;
 
     img {
@@ -80,7 +62,7 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 991px) {
     flex-direction: column-reverse;
-    .hero__info-images {
+    .market__info-images {
       margin: 3rem 0;
       img {
         height: 300px;
@@ -97,4 +79,4 @@ const Wrapper = styled.div`
     }
   }
 `;
-export default Hero;
+export default Market;

@@ -28,15 +28,15 @@ function Login() {
         <img src={HERO2} className="login__cta-img" alt="cta-image2" />
         <img src={HERO3} className="login__cta-img" alt="cta-image3" />
       </div>
+
       <button onClick={loginAuth}>Login</button>
-      {/* </div> */}
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   padding-top: 5rem;
-  height: 80vh;
+  height: 86vh;
   text-align: center;
   overflow: hidden;
   display: flex;

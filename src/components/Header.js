@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {BsPlusLg} from 'react-icons/bs';
+import {RiPencilLine} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {Error, Loader} from '.';
@@ -68,9 +68,11 @@ const Header = () => {
         })}
       </div>
       {isLoggedIn && (
-        <button className="toggle-bar">
-          <BsPlusLg className="toggle-icon" />
-        </button>
+        <Link to="/create">
+          <button className="toggle-bar">
+            <RiPencilLine className="toggle-icon" />
+          </button>
+        </Link>
       )}
     </Wrapper>
   );
@@ -78,14 +80,19 @@ const Header = () => {
 
 const Wrapper = styled.nav`
   display: flex;
+  position: fixed;
+  top: 0;
+  width: 94%;
   justify-content: space-around;
   align-items: center;
-  margin: 2rem 10rem;
+  padding: 2rem 5rem;
+  background: white;
+  z-index: 200;
   .toggle-bar {
     display: none;
-    position: absolute;
+    position: fixed;
     bottom: 50px;
-    right: 50px;
+    right: 30px;
     color: white;
     font-size: 1.9rem;
     font-weight: bold;
@@ -101,7 +108,7 @@ const Wrapper = styled.nav`
       transition: all 0.3s ease-out;
     }
     &:hover .toggle-icon {
-      transform: rotate(-45deg);
+      transform: rotate(90deg);
     }
   }
   .header__btn {
@@ -172,8 +179,8 @@ const Wrapper = styled.nav`
   }
 
   @media screen and (max-width: 991px) {
-    margin: 2rem 5rem;
     justify-content: space-between;
+    padding: 2rem;
     .header__btn {
       img {
         height: 30px;
