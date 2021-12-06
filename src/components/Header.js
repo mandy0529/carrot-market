@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import {BsPlus} from 'react-icons/bs';
+import {BsPlusLg} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {Error, Loader} from '.';
 import {useGlobalContext} from '../context/AppContext';
 import {HEADER_LOGO} from '../utils/constant';
+import {headerList} from '../utils/helper';
 
 const Header = () => {
   const {user, loginAuth, error, logoutAuth, stayLogin, loading} =
@@ -31,9 +32,16 @@ const Header = () => {
       </Link>
 
       {isLoggedIn && (
-        <div className="header__menu-list">
-          <span>Sell your things</span>
-          <BsPlus className="header__create-icon" />
+        <div className="header__menu">
+          {headerList.map((item) => {
+            const {id, text, icon} = item;
+            return (
+              <div id={id} key={id} className="header__menu-list">
+                {icon}
+                <span>{text}</span>
+              </div>
+            );
+          })}
         </div>
       )}
 
@@ -47,6 +55,23 @@ const Header = () => {
           <button onClick={loginAuth}>Login</button>
         )}
       </div>
+
+      <div className="header__menu mobile">
+        {headerList.map((item) => {
+          const {id, text, icon} = item;
+          return (
+            <div id={id} key={id} className="header__menu-list fixed">
+              {icon}
+              <span>{text}</span>
+            </div>
+          );
+        })}
+      </div>
+      {isLoggedIn && (
+        <button className="toggle-bar">
+          <BsPlusLg className="toggle-icon" />
+        </button>
+      )}
     </Wrapper>
   );
 };
@@ -56,7 +81,29 @@ const Wrapper = styled.nav`
   justify-content: space-around;
   align-items: center;
   margin: 2rem 10rem;
-
+  .toggle-bar {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    color: white;
+    font-size: 1.9rem;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    line-height: 50px;
+    border: none;
+    outline: none;
+    background: #fb8500;
+    cursor: pointer;
+    .toggle-icon {
+      transition: all 0.3s ease-out;
+    }
+    &:hover .toggle-icon {
+      transform: rotate(-45deg);
+    }
+  }
   .header__btn {
     cursor: pointer;
     &:hover img {
@@ -83,6 +130,7 @@ const Wrapper = styled.nav`
       transition: all 0.3s linear;
       letter-spacing: 0.2rem;
       font-weight: bold;
+      cursor: pointer;
       &:hover {
         color: white;
         background: #ffa468;
@@ -97,25 +145,83 @@ const Wrapper = styled.nav`
       margin: 0 1rem;
     }
   }
-
-  .header__menu-list {
+  .header__menu {
     display: flex;
-    align-items: center;
-    margin: 0 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 1rem;
-    span {
-      margin-left: 2rem;
+    margin-left: 2rem;
+    .header__menu-list {
+      display: flex;
+      align-items: center;
+      margin: 0 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      span {
+        margin: 0 0.6rem;
+        padding: 0.7rem 0;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s linear;
+        cursor: pointer;
+        &:hover {
+          border-bottom: 3px solid #ffa468;
+        }
+      }
     }
-    .header__create-icon {
-      font-size: 2.5rem;
-    }
+  }
+  .mobile {
+    display: none;
   }
 
   @media screen and (max-width: 991px) {
+    margin: 2rem 5rem;
+    justify-content: space-between;
+    .header__btn {
+      img {
+        height: 30px;
+      }
+    }
     .header__menu {
       display: none;
+    }
+    .header__profile {
+      display: none;
+    }
+    .toggle-bar {
+      display: block;
+      bottom: 140px;
+      z-index: 100;
+    }
+    .mobile {
+      display: flex;
+      width: 100%;
+      margin: 0 auto;
+      justify-content: space-around;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      padding: 1rem 0;
+      background: #ffa468;
+      color: white;
+      .fixed {
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+        border-bottom: 3px solid transparent;
+        &:hover {
+          transform: scale(0.94);
+          border-bottom: 3px solid white;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1500px) {
+    .header__menu {
+      .header__menu-list {
+        flex-direction: column;
+        text-align: center;
+      }
+      span {
+        font-size: 1rem;
+      }
     }
   }
 `;
