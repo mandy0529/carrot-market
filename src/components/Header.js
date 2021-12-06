@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
-import {RiPencilLine} from 'react-icons/ri';
-import {Link} from 'react-router-dom';
+import {Link, useLocation, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 import {Error, Loader} from '.';
 import {useGlobalContext} from '../context/AppContext';
@@ -12,6 +11,7 @@ const Header = () => {
     useGlobalContext();
   const {name, photo, email} = user;
   const isLoggedIn = name !== '' && photo !== '' && email !== '';
+  const {pathname} = useLocation();
 
   useEffect(() => {
     stayLogin();
@@ -34,12 +34,21 @@ const Header = () => {
       {isLoggedIn && (
         <div className="header__menu">
           {headerList.map((item) => {
-            const {id, text, icon} = item;
+            const {id, text, icon, path} = item;
             return (
-              <div id={id} key={id} className="header__menu-list">
-                {icon}
-                <span>{text}</span>
-              </div>
+              <Link className="header__menu-link" id={id} key={id} to={path}>
+                <div
+                  style={{
+                    borderBottom: `3px solid ${
+                      path === pathname ? '#FFA468' : 'transparent'
+                    }`,
+                  }}
+                  className="header__menu-list"
+                >
+                  {icon}
+                  <span>{text}</span>
+                </div>
+              </Link>
             );
           })}
         </div>
@@ -58,22 +67,24 @@ const Header = () => {
 
       <div className="header__menu mobile">
         {headerList.map((item) => {
-          const {id, text, icon} = item;
+          const {id, text, icon, path} = item;
           return (
-            <div id={id} key={id} className="header__menu-list fixed">
-              {icon}
-              <span>{text}</span>
-            </div>
+            <Link className="header__menu-link" id={id} key={id} to={path}>
+              <div
+                style={{
+                  borderBottom: `3px solid ${
+                    path === pathname ? 'white' : 'transparent'
+                  }`,
+                }}
+                className="header__menu-list"
+              >
+                {icon}
+                <span>{text}</span>
+              </div>
+            </Link>
           );
         })}
       </div>
-      {isLoggedIn && (
-        <Link to="/create">
-          <button className="toggle-bar">
-            <RiPencilLine className="toggle-icon" />
-          </button>
-        </Link>
-      )}
     </Wrapper>
   );
 };
@@ -88,29 +99,7 @@ const Wrapper = styled.nav`
   padding: 2rem 5rem;
   background: white;
   z-index: 200;
-  .toggle-bar {
-    display: none;
-    position: fixed;
-    bottom: 50px;
-    right: 30px;
-    color: white;
-    font-size: 1.9rem;
-    font-weight: bold;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    line-height: 50px;
-    border: none;
-    outline: none;
-    background: #fb8500;
-    cursor: pointer;
-    .toggle-icon {
-      transition: all 0.3s ease-out;
-    }
-    &:hover .toggle-icon {
-      transform: rotate(90deg);
-    }
-  }
+
   .header__btn {
     cursor: pointer;
     &:hover img {
@@ -155,6 +144,7 @@ const Wrapper = styled.nav`
   .header__menu {
     display: flex;
     margin-left: 2rem;
+
     .header__menu-list {
       display: flex;
       align-items: center;
@@ -162,15 +152,16 @@ const Wrapper = styled.nav`
       font-weight: bold;
       text-transform: uppercase;
       font-size: 1.2rem;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s linear;
+      &:hover {
+        border-bottom: 3px solid red;
+      }
       span {
         margin: 0 0.6rem;
         padding: 0.7rem 0;
-        border-bottom: 3px solid transparent;
-        transition: all 0.3s linear;
+
         cursor: pointer;
-        &:hover {
-          border-bottom: 3px solid #ffa468;
-        }
       }
     }
   }
@@ -192,11 +183,7 @@ const Wrapper = styled.nav`
     .header__profile {
       display: none;
     }
-    .toggle-bar {
-      display: block;
-      bottom: 140px;
-      z-index: 100;
-    }
+
     .mobile {
       display: flex;
       width: 100%;

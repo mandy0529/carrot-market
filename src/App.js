@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import {Footer, Header, Login} from './components';
+import {Footer, Header, Login, Products, SingleProduct} from './components';
 import {useGlobalContext} from './context/AppContext';
 import {CreateComment, Home} from './pages';
 
@@ -18,6 +18,14 @@ function App() {
         <Route
           path="/create"
           element={isLoggedIn ? <CreateComment /> : <Login />}
+        />
+        <Route
+          path="/products"
+          element={isLoggedIn ? <Products /> : <Login />}
+        />
+        <Route
+          path="/detail"
+          element={isLoggedIn ? <SingleProduct /> : <Login />}
         />
       </Routes>
       <Footer />

@@ -1,19 +1,19 @@
 import {
   BsChatSquareDots,
   RiHome8Line,
-  CgFileDocument,
-  MdOutlineWhereToVote,
   RiUserLine,
   ImQuestion,
   TiDocumentText,
+  RiStoreLine,
+  MdOutlineEdit,
+  MdDeleteOutline,
 } from '../icons/icons';
+import {PRODUCTS} from './constant';
 
 const headerList = [
-  {id: 1, text: '홈', icon: <RiHome8Line />},
-  {id: 2, text: '동네생활', icon: <CgFileDocument />},
-  {id: 3, text: '내 근처', icon: <MdOutlineWhereToVote />},
-  {id: 4, text: '채팅', icon: <BsChatSquareDots />},
-  {id: 5, text: '나의 당근', icon: <RiUserLine />},
+  {id: 1, text: '홈', icon: <RiHome8Line />, path: '/'},
+  {id: 2, text: '물건 팔기', icon: <RiStoreLine />, path: '/create'},
+  {id: 3, text: '나의 당근', icon: <RiUserLine />, path: '/products'},
 ];
 
 const placeList = [
@@ -36,4 +36,33 @@ const placeList = [
     icon: <BsChatSquareDots />,
   },
 ];
-export {headerList, placeList};
+
+const productsList = [
+  {
+    id: 1,
+    title: '올드카',
+    where: '운서동 · 1일전',
+    price: 10000,
+    icon1: <MdOutlineEdit />,
+    icon2: <MdDeleteOutline />,
+    img: PRODUCTS,
+  },
+  {
+    id: 2,
+    title: '올드카',
+    where: '운서동 · 1일전',
+    price: 10000,
+    icon1: <MdOutlineEdit />,
+    icon2: <MdDeleteOutline />,
+    img: PRODUCTS,
+  },
+];
+
+const formatPrice = (number) => {
+  const newNumber = new Intl.NumberFormat('ko-KR', {
+    style: 'currency',
+    currency: 'KRW',
+  }).format(number);
+  return newNumber;
+};
+export {headerList, placeList, productsList, formatPrice};

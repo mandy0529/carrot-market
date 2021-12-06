@@ -7,4 +7,18 @@ import Place from './Place';
 import Market from './Market';
 import Footer from './Footer';
 import Form from './Form';
-export {Login, Header, Hero, Error, Loader, Place, Market, Footer, Form};
+import Products from './Products';
+import SingleProduct from './SingleProduct';
+export {
+  Login,
+  Header,
+  Hero,
+  Error,
+  Loader,
+  Place,
+  Market,
+  Footer,
+  Form,
+  Products,
+  SingleProduct,
+};

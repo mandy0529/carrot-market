@@ -1,15 +1,21 @@
 import {BsChatSquareDots, BsPlusSquare} from 'react-icons/bs';
 import {CgFileDocument} from 'react-icons/cg';
-import {MdOutlineWhereToVote} from 'react-icons/md';
+import {
+  MdOutlineWhereToVote,
+  MdOutlineEdit,
+  MdDeleteOutline,
+} from 'react-icons/md';
 import {
   RiUserLine,
   RiHome8Line,
   RiPencilLine,
   RiCloseFill,
+  RiStoreLine,
+  RiBearSmileLine,
 } from 'react-icons/ri';
 import {ImQuestion} from 'react-icons/im';
 import {TiDocumentText} from 'react-icons/ti';
-import {AiOutlineCamera} from 'react-icons/ai';
+import {AiOutlineCamera, AiOutlineLike} from 'react-icons/ai';
 
 export {
   RiHome8Line,
@@ -23,4 +29,9 @@ export {
   TiDocumentText,
   AiOutlineCamera,
   RiCloseFill,
+  RiStoreLine,
+  MdOutlineEdit,
+  MdDeleteOutline,
+  RiBearSmileLine,
+  AiOutlineLike,
 };

@@ -10,6 +10,7 @@ const PLACE2 = 'assets/place2.jpg';
 const PLACE3 = 'assets/place3.jpg';
 const MARKET1 = 'assets/market1.jpg';
 const MARKET2 = 'assets/market2.jpg';
+const PRODUCTS = 'assets/car.jpeg';
 export {
   HEADER_LOGO,
   LOADING_LOGO,
@@ -23,4 +24,5 @@ export {
   PLACE3,
   MARKET1,
   MARKET2,
+  PRODUCTS,
 };

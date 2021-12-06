@@ -32,7 +32,7 @@ const Wrapper = styled.section`
   padding-top: 8rem;
   text-align: center;
   background: #fbf7f2;
-  text-align: center;
+
   .create__header {
     display: flex;
     align-items: center;
