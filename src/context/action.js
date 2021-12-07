@@ -11,3 +11,11 @@ export const HIDE_DOT = 'hide-dot';
 
 export const SHOW_MODAL = 'show-modal';
 export const CLOSE_MODAL = 'close-modal';
+
+export const SET_FILE = 'set-file';
+export const SET_ERROR_FILE = 'set-error-file';
+export const SET_FILE_MSG = 'set-file-msg';
+
+export const UPDATE_FILTERS = 'update-filters';
+export const EMPTY_FORM = 'empty-form';
+export const PUT_FORM_TO_DB = 'put-form-to-db';

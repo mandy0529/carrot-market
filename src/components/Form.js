@@ -1,16 +1,70 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {AiOutlineCamera} from 'react-icons/ai';
 import styled from 'styled-components';
+import {ProgressBar} from '.';
+import {useGlobalContext} from '../context/AppContext';
 
 function Form() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('submiited');
-  };
+  const {
+    file,
+    handleImgUpload,
+    updateValue,
+    handleSubmit,
+    valueContent: {title, category, price, text},
+  } = useGlobalContext();
+
+  // useEffect(() => {
+  //   putFormToDb();
+  // }, []);
 
   return (
     <Wrapper>
-      <form onSubmit={handleSubmit} className="picture__text">
+      <form onSubmit={(e) => handleSubmit(e)} className="picture__text">
+        {file.data && (
+          <div className="img-flex">
+            <ProgressBar />
+          </div>
+        )}
+
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="글 제목"
+          required
+          className="title"
+          value={title}
+          onChange={updateValue}
+        />
+        <input
+          type="text"
+          id="category"
+          name="category"
+          className="category"
+          required
+          placeholder="카테고리"
+          value={category}
+          onChange={updateValue}
+        />
+        <input
+          type="number"
+          id="price"
+          name="price"
+          placeholder="￦ 가격 (선택사항)"
+          required
+          className="price"
+          value={price}
+          onChange={updateValue}
+        />
+        <textarea
+          id="text"
+          name="text"
+          className="text"
+          required
+          onChange={updateValue}
+          value={text}
+          placeholder="올릴 게시글 내용을 작성해주세요. (가품 및 판매 금지 품목은 게시가 제한 될 수 있습니다.)"
+        />
         <div className="picture__text-upload">
           <div className="upload__info">
             <AiOutlineCamera className="upload__icon" />
@@ -23,41 +77,10 @@ function Form() {
             type="file"
             id="input-file"
             style={{display: 'none'}}
+            className="upload"
+            onChange={handleImgUpload}
           />
         </div>
-
-        <input
-          type="text"
-          id="title"
-          name="title"
-          placeholder="글 제목"
-          required
-          className="title"
-        />
-        <input
-          type="text"
-          id="category"
-          name="category"
-          className="category"
-          required
-          placeholder="카테고리"
-        />
-        <input
-          type="number"
-          id="tentacles"
-          name="tentacles"
-          placeholder="￦ 가격 (선택사항)"
-          required
-          className="price"
-        />
-        <input
-          type="textarea"
-          id="text"
-          name="text"
-          className="text"
-          required
-          placeholder="올릴 게시글 내용을 작성해주세요. (가품 및 판매 금지 품목은 게시가 제한 될 수 있습니다.)"
-        />
         <input className="submit" type="submit" value="완료" />
       </form>
     </Wrapper>
@@ -72,21 +95,22 @@ const Wrapper = styled.section`
   margin: 2rem auto;
   background: white;
   border-radius: 30px;
+
   input {
     border: none;
     padding: 1.5rem 0;
     margin: 0.6rem 0;
-    border-bottom: 2px solid lightgray;
     outline: none;
     font-size: 1.3rem;
+    border-bottom: 2px solid lightgray;
   }
   .picture__text {
     display: flex;
     flex-direction: column;
     .picture__text-upload {
       display: flex;
-      border-bottom: 2px solid lightgray;
       padding-bottom: 1rem;
+
       .upload__info {
         margin: 0 0.7rem;
       }
@@ -110,6 +134,13 @@ const Wrapper = styled.section`
 
     .text {
       height: 8rem;
+      max-width: 800px;
+      border: none;
+      outline: none;
+      resize: none;
+      margin: 2rem 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid lightgray;
     }
     .submit {
       max-width: 150px;
@@ -137,6 +168,10 @@ const Wrapper = styled.section`
       padding: 0;
       margin: 0;
       background: white;
+      .text {
+        font-size: 0.9rem;
+        min-width: 400px;
+      }
       .picture__text {
         margin: 0 auto;
       }

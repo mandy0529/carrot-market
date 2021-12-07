@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import {Footer, Header, Login, Products, SingleProduct} from './components';
 import {useGlobalContext} from './context/AppContext';
 import {CreateComment, Home} from './pages';
+import styled from 'styled-components';
 
 function App() {
   const {user} = useGlobalContext();

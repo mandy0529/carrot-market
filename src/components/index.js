@@ -10,6 +10,7 @@ import Form from './Form';
 import Products from './Products';
 import SingleProduct from './SingleProduct';
 import Modal from './Modal';
+import ProgressBar from './ProgressBar';
 export {
   Login,
   Header,
@@ -23,4 +24,5 @@ export {
   Products,
   SingleProduct,
   Modal,
+  ProgressBar,
 };

@@ -1,13 +1,18 @@
 import {
   CLOSE_MODAL,
+  EMPTY_FORM,
   HIDE_DOT,
   LOGIN_AUTH,
   LOGOUT_AUTH,
   OFF_LOADING,
   ON_LOADING,
+  PUT_FORM_TO_DB,
   SET_ERROR,
+  SET_ERROR_FILE,
+  SET_FILE,
   SHOW_DOT,
   SHOW_MODAL,
+  UPDATE_FILTERS,
 } from './action';
 
 export const initialState = {
@@ -23,6 +28,16 @@ export const initialState = {
   },
   showDot: false,
   isModalOpen: false,
+  file: {
+    data: '',
+    message: '',
+  },
+  valueContent: {
+    title: '',
+    category: '',
+    price: '',
+    text: '',
+  },
 };
 
 const AppReducer = (state, action) => {
@@ -76,6 +91,50 @@ const AppReducer = (state, action) => {
     case CLOSE_MODAL:
       return {...state, isModalOpen: false};
 
+    case SET_FILE:
+      return {
+        ...state,
+        file: {
+          ...state.file,
+          data: action.payload,
+          message: 'succeed  upload ',
+        },
+      };
+
+    // case SET_ERROR_FILE:
+    //   return {
+    //     ...state,
+    //     file: {
+    //       ...state.file,
+    //       data: null,
+    //       error: true,
+    //       message: 'please upload file format (png /jpeg)',
+    //     },
+    //   };
+
+    case UPDATE_FILTERS:
+      const {name, value} = action.payload;
+      return {...state, valueContent: {...state.valueContent, [name]: value}};
+
+    case EMPTY_FORM:
+      return {
+        ...state,
+        valueContent: {
+          ...state.valueContent,
+          title: '',
+          category: '',
+          price: '',
+          text: '',
+        },
+      };
+
+    // case PUT_FORM_TO_DB:
+    //   const {newForm} = action.payload;
+    //   if (newForm) {
+    //     console.log(newForm, 'new form context');
+    //   }
+
+    //   return {...state, valueContent: {...state.valueContent}};
     default:
       throw new Error(`not matched any ${action.type}`);
   }

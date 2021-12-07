@@ -65,4 +65,7 @@ const formatPrice = (number) => {
   }).format(number);
   return newNumber;
 };
-export {headerList, placeList, productsList, formatPrice};
+
+const imgTypes = ['image/png', 'image/jpeg'];
+
+export {headerList, placeList, productsList, formatPrice, imgTypes};

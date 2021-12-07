@@ -30,8 +30,8 @@ const Wrapper = styled.footer`
     text-transform: none;
     line-height: 1.25;
   }
-  @media (min-width: 776px) {
-    flex-direction: row;
+  @media (max-width: 776px) {
+    display: none;
   }
 `;
 
