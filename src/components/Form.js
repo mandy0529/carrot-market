@@ -3,9 +3,14 @@ import {AiOutlineCamera} from 'react-icons/ai';
 import styled from 'styled-components';
 
 function Form() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submiited');
+  };
+
   return (
     <Wrapper>
-      <form className="picture__text">
+      <form onSubmit={handleSubmit} className="picture__text">
         <div className="picture__text-upload">
           <div className="upload__info">
             <AiOutlineCamera className="upload__icon" />
@@ -13,7 +18,12 @@ function Form() {
           <label className="input-file-button" htmlFor="input-file">
             업로드
           </label>
-          <input type="file" id="input-file" style={{display: 'none'}} />
+          <input
+            required
+            type="file"
+            id="input-file"
+            style={{display: 'none'}}
+          />
         </div>
 
         <input
@@ -21,6 +31,7 @@ function Form() {
           id="title"
           name="title"
           placeholder="글 제목"
+          required
           className="title"
         />
         <input
@@ -28,6 +39,7 @@ function Form() {
           id="category"
           name="category"
           className="category"
+          required
           placeholder="카테고리"
         />
         <input
@@ -35,6 +47,7 @@ function Form() {
           id="tentacles"
           name="tentacles"
           placeholder="￦ 가격 (선택사항)"
+          required
           className="price"
         />
         <input
@@ -42,6 +55,7 @@ function Form() {
           id="text"
           name="text"
           className="text"
+          required
           placeholder="올릴 게시글 내용을 작성해주세요. (가품 및 판매 금지 품목은 게시가 제한 될 수 있습니다.)"
         />
         <input className="submit" type="submit" value="완료" />

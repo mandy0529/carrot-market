@@ -21,7 +21,7 @@ function Market() {
         <h1>
           내 근처에서 찾는
           <br />
-          동네가게
+          동네 가게
         </h1>
         <p>
           우리 동네 가게를 찾고 있나요?
@@ -43,9 +43,10 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
+    letter-spacing: 0.2rem;
   }
   p {
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.2rem;
     margin-bottom: 2rem;
   }
 

@@ -19,19 +19,19 @@ const headerList = [
 const placeList = [
   {
     id: 1,
-    text: '우리동네질문',
+    text: '우리 동네 질문',
     content: '궁금한 게 있을 땐 이웃에게 물어보세요.',
     icon: <ImQuestion />,
   },
   {
     id: 2,
-    text: '동네분실센터',
+    text: '동네 분실 센터',
     content: '무언가를 잃어버렸을 때, 함께 찾을 수 있어요.',
     icon: <TiDocumentText />,
   },
   {
     id: 3,
-    text: '동네모임',
+    text: '동네 모임',
     content: '관심사가 비슷한 이웃과 온오프라인으로 만나요.',
     icon: <BsChatSquareDots />,
   },

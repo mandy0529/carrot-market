@@ -86,15 +86,15 @@ const Wrapper = styled.div`
       -moz-box-shadow: 0px 2px 40px -14px rgba(0, 0, 0, 0.8);
       height: 500px;
       &:nth-child(1) {
-        top: 0;
+        top: 50px;
         left: -150px;
       }
       &:nth-child(2) {
-        top: -100px;
+        top: -10px;
         z-index: 100;
       }
       &:nth-child(3) {
-        top: 50px;
+        top: 100px;
         left: 150px;
       }
     }

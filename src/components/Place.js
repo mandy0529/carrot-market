@@ -18,7 +18,7 @@ function Place() {
       <div className="place__info-p">
         <h1>
           이웃과 함께 하는
-          <br /> 동네생활
+          <br /> 동네 생활
         </h1>
         <p>
           우리 동네의 다양한 이야기를 <br />
@@ -60,9 +60,10 @@ const Wrapper = styled.div`
       font-size: 2.5rem;
       font-weight: bold;
       margin: 0;
+      letter-spacing: 0.2rem;
     }
     p {
-      letter-spacing: 0.3rem;
+      letter-spacing: 0.2rem;
       margin: 2rem 0;
     }
   }
@@ -96,6 +97,7 @@ const Wrapper = styled.div`
   .place__menu {
     display: flex;
     margin-top: 3rem;
+    text-align: center;
     h3 {
       font-size: 0.8rem;
       margin: 1rem 0;
@@ -110,7 +112,7 @@ const Wrapper = styled.div`
     .list-p {
       max-width: 100px;
       font-size: 0.8rem;
-      letter-spacing: 0.1rem;
+      letter-spacing: 0.07rem;
       margin: 1.5rem 0;
     }
     .place__menu-list {

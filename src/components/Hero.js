@@ -20,7 +20,7 @@ function Hero() {
 
       <div className="hero__info-p">
         <h1>
-          우리동네
+          우리 동네
           <br /> 중고 직거래 마켓
         </h1>
         <p>동네 주민들과 가깝고 따뜻한 거래를 지금 경험해보세요.</p>
@@ -43,9 +43,10 @@ const Wrapper = styled.div`
     font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
+    letter-spacing: 0.2rem;
   }
   p {
-    letter-spacing: 0.3rem;
+    letter-spacing: 0.2rem;
     margin-bottom: 2rem;
   }
 

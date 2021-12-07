@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
+import {useGlobalContext} from '../context/AppContext';
 import {productsList, formatPrice} from '../utils/helper';
 
 function Products() {
+  const {editProduct, deleteProduct} = useGlobalContext();
   return (
     <Wrapper>
       <h1>판매내역</h1>
@@ -22,8 +24,12 @@ function Products() {
                 </div>
 
                 <div className="products__list-icons">
-                  <span className="icons">{icon1}</span>
-                  <span className="icons">{icon2}</span>
+                  <span onClick={editProduct} className="icons">
+                    {icon1}
+                  </span>
+                  <span onClick={deleteProduct} className="icons">
+                    {icon2}
+                  </span>
                 </div>
               </div>
 

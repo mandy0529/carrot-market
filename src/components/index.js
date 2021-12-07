@@ -9,6 +9,7 @@ import Footer from './Footer';
 import Form from './Form';
 import Products from './Products';
 import SingleProduct from './SingleProduct';
+import Modal from './Modal';
 export {
   Login,
   Header,
@@ -21,4 +22,5 @@ export {
   Form,
   Products,
   SingleProduct,
+  Modal,
 };

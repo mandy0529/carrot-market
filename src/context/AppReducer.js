@@ -1,9 +1,13 @@
 import {
+  CLOSE_MODAL,
+  HIDE_DOT,
   LOGIN_AUTH,
   LOGOUT_AUTH,
   OFF_LOADING,
   ON_LOADING,
   SET_ERROR,
+  SHOW_DOT,
+  SHOW_MODAL,
 } from './action';
 
 export const initialState = {
@@ -17,6 +21,8 @@ export const initialState = {
     state: false,
     text: '',
   },
+  showDot: false,
+  isModalOpen: false,
 };
 
 const AppReducer = (state, action) => {
@@ -29,6 +35,12 @@ const AppReducer = (state, action) => {
 
     case SET_ERROR:
       return {...state, error: {state: true, text: action.payload}};
+
+    case SHOW_DOT:
+      return {...state, showDot: true};
+
+    case HIDE_DOT:
+      return {...state, showDot: false};
 
     case LOGIN_AUTH:
       const {displayName, photoURL, email} = action.payload;
@@ -57,6 +69,12 @@ const AppReducer = (state, action) => {
         },
         user: {...state.user, name: '', photo: '', email: ''},
       };
+
+    case SHOW_MODAL:
+      return {...state, isModalOpen: true};
+
+    case CLOSE_MODAL:
+      return {...state, isModalOpen: false};
 
     default:
       throw new Error(`not matched any ${action.type}`);

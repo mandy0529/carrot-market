@@ -1,9 +1,14 @@
-import {BsChatSquareDots, BsPlusSquare} from 'react-icons/bs';
+import {
+  BsChatSquareDots,
+  BsPlusSquare,
+  BsThreeDotsVertical,
+} from 'react-icons/bs';
 import {CgFileDocument} from 'react-icons/cg';
 import {
   MdOutlineWhereToVote,
   MdOutlineEdit,
   MdDeleteOutline,
+  MdClose,
 } from 'react-icons/md';
 import {
   RiUserLine,
@@ -34,4 +39,6 @@ export {
   MdDeleteOutline,
   RiBearSmileLine,
   AiOutlineLike,
+  BsThreeDotsVertical,
+  MdClose,
 };
