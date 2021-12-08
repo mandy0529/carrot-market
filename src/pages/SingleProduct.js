@@ -1,65 +1,30 @@
 import React from 'react';
-import {AiOutlineLike} from 'react-icons/ai';
-import {BsThreeDotsVertical} from 'react-icons/bs';
-import {MdDeleteOutline, MdOutlineEdit} from 'react-icons/md';
-import {RiBearSmileLine} from 'react-icons/ri';
 import styled from 'styled-components';
-import {Modal} from '../components';
-import {useGlobalContext} from '../context/AppContext';
-import {useUserContext} from '../context/UserContext';
+import {Error} from '../components';
+import Products from '../components/Products';
+import {useProductsContext} from '../context/ProductsContext';
 
 function SingleProduct() {
-  const {loading, showDotPopUp, openModal} = useGlobalContext();
-  const {user} = useUserContext();
-  const {name, photo} = user;
+  const {images} = useProductsContext();
 
-  if (loading) {
-    return null;
+  if (images.length === 0) {
+    return <Error />;
   }
 
   return (
     <Wrapper>
-      <Modal />
-      <img
-        onClick={openModal}
-        className="product-img"
-        src="assets/car.jpeg"
-        alt="detail-img"
-      />
-
-      <div className="detail__user">
-        <div className="detail__user-info">
-          <img src={photo} alt={name} />
-          <div className="detail__user-pri">
-            <h4>{name}</h4>
-            <p>운서동</p>
-          </div>
-        </div>
-        <div className="detail__icon">
-          <RiBearSmileLine />
-        </div>
-      </div>
-      <div className="detail__products">
-        <h1>올드카</h1>
-        <h4>스포츠/레저</h4>
-        <p className="text">
-          오래 된 올드카 입니다. 오래됐지만 주행하는데에는 아무 문제없습니다!
-          직거래만 원하고, 오셔서 얼마든지 인스펙션 보셔도 됩니다. 장소는 운서
-          카페거리입니다 !
-        </p>
-        <div className="interest">
-          <div className="interest__list">
-            <span>관심 1</span>
-            <AiOutlineLike className="like__icon" />
-          </div>
-        </div>
+      <div>
+        {images &&
+          images.map((item) => {
+            return <Products key={item.id} {...item} />;
+          })}
       </div>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  padding-top: 6rem;
+  padding: 6rem 0 2rem 0;
   min-height: 78vh;
   max-width: 40vw;
   margin: 2rem auto;
@@ -68,12 +33,16 @@ const Wrapper = styled.div`
   h4 {
     margin: 0.5rem;
   }
+  .single-product {
+    width: 100%;
+    padding: 2rem 0;
+    border-bottom: 3px dotted black;
+  }
   .product-img {
     position: relative;
     object-fit: cover;
     overflow: hidden;
-    max-width: 100%;
-    min-width: 100%;
+    height: 400px;
     border-radius: 10px;
     transition: all 0.3s linear;
     cursor: pointer;
@@ -135,7 +104,11 @@ const Wrapper = styled.div`
     }
   }
   @media screen and (max-width: 991px) {
-    max-width: 70vw;
+    max-width: 80vw;
+    .product-img {
+      min-width: 100%;
+      height: 200px;
+    }
     .detail__products {
       h1 {
         font-size: 1.5rem;

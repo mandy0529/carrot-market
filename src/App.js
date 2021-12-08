@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import {Footer, Header, Login, Products} from './components';
+import {Footer, Header, Login} from './components';
 import {CreateComment, Home, MyProduct, SingleProduct} from './pages';
 import {useUserContext} from './context/UserContext';
 
@@ -22,8 +22,11 @@ function App() {
           path="/my-product"
           element={isLoggedIn ? <MyProduct /> : <Login />}
         />
-        <Route path="/products" element={<Products />} />
-        <Route path="/detail" element={<SingleProduct />} />
+
+        <Route
+          path="/products"
+          element={isLoggedIn ? <SingleProduct /> : <Login />}
+        />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -1,56 +1,69 @@
 import React from 'react';
 import styled from 'styled-components';
-import {productsList, formatPrice} from '../utils/helper';
+import {formatPrice} from '../utils/helper';
 import {useProductsContext} from '../context/ProductsContext';
-import useStorage from '../hooks/useStorage';
+import {MdOutlineEdit, MdDeleteOutline} from '../icons/icons';
+import {useUserContext} from '../context/UserContext';
+import {useNavigate} from 'react-router';
+import {Error} from '../components';
 
 function MyProduct() {
+  const navigate = useNavigate();
+  const {editProduct, deleteProduct, images} = useProductsContext();
   const {
-    editProduct,
-    deleteProduct,
-    file,
-    valueContent: {title, category, price, text},
-  } = useProductsContext();
+    user: {id: loginId},
+  } = useUserContext();
 
-  const {progress, error, url} = useStorage(file.data && file.data);
+  const handleEdit = (item) => {
+    navigate('/create');
+    editProduct(item);
+  };
+  const handleDelete = (item) => {
+    deleteProduct(item);
+  };
 
-  if (file.data) {
-    console.log({
-      'file upload state': {progress, error, url},
-      'value content': {title, category, price, text},
-    });
+  if (images.length === 0) {
+    return <Error />;
   }
-
   return (
     <Wrapper>
       <h1>나의 판매 목록</h1>
-      <div>
-        {productsList.map((item) => {
-          const {id, title, where, price, icon1, icon2, img} = item;
-          return (
-            <div key={id} id={id} className="products__list">
-              <img src={img} alt={title} />
 
-              <div className="products__list-info">
-                <div className="products__list-p">
-                  <h3>{title}</h3>
-                  <p>{where}</p>
-                  <h4>{formatPrice(price)}원</h4>
-                </div>
+      <>
+        {images &&
+          images.map((item) => {
+            const {title, price, id, url, userId} = item;
 
-                <div className="products__list-icons">
-                  <span onClick={editProduct} className="icons">
-                    {icon1}
-                  </span>
-                  <span onClick={deleteProduct} className="icons">
-                    {icon2}
-                  </span>
-                </div>
+            return (
+              <div key={id} id={id}>
+                {loginId === userId && (
+                  <div className="products__list">
+                    <img src={url} alt={title} />
+                    <div className="products__list-info">
+                      <div className="products__list-p">
+                        <h1>{title}</h1>
+                        <h4>{formatPrice(price)}</h4>
+                      </div>
+
+                      <div
+                        data-id={id}
+                        data-url={url}
+                        className="products__list-icons"
+                      >
+                        <span className="icons">
+                          <MdOutlineEdit onClick={() => handleEdit(item)} />
+                        </span>
+                        <span className="icons">
+                          <MdDeleteOutline onClick={() => handleDelete(item)} />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+      </>
     </Wrapper>
   );
 }
@@ -63,8 +76,7 @@ const Wrapper = styled.div`
   margin: 2rem auto;
 
   img {
-    width: 200px;
-    height: 100px;
+    height: 150px;
   }
   .products__list {
     display: flex;
@@ -72,9 +84,10 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 3rem 2rem;
     border-bottom: 2px solid lightgray;
-
+    border-radius: 5px;
     .products__list-info {
-      margin-left: 2rem;
+      margin-left: 3rem;
+      text-align: center;
 
       .products__list-icons {
         margin-top: 1rem;
@@ -110,12 +123,10 @@ const Wrapper = styled.div`
       font-size: 1.2rem;
     }
     img {
-      width: 200px;
-      height: 100px;
+      height: 200px;
     }
     .products__list {
       justify-content: flex-start;
-      border-bottom: 2px solid transparent;
       padding: 1rem 0;
       .products__list-info {
         margin-top: 0.5rem;

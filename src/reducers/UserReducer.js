@@ -12,6 +12,7 @@ export const UserinitialState = {
     name: '',
     photo: '',
     email: '',
+    id: '',
   },
   error: {
     state: false,
@@ -31,7 +32,7 @@ const UserReducer = (state, action) => {
       return {...state, error: {state: true, text: action.payload}};
 
     case LOGIN_AUTH:
-      const {displayName, photoURL, email} = action.payload;
+      const {displayName, photoURL, email, uid} = action.payload;
       return {
         ...state,
         loading: false,
@@ -44,6 +45,7 @@ const UserReducer = (state, action) => {
           name: displayName,
           photo: photoURL,
           email,
+          id: uid,
         },
       };
 

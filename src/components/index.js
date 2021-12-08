@@ -7,20 +7,6 @@ import Place from './Place';
 import Market from './Market';
 import Footer from './Footer';
 import Form from './Form';
-import Products from './Products';
 import Modal from './Modal';
-import ProgressBar from './ProgressBar';
-export {
-  Login,
-  Header,
-  Hero,
-  Error,
-  Loader,
-  Place,
-  Market,
-  Footer,
-  Form,
-  Products,
-  Modal,
-  ProgressBar,
-};
+
+export {Login, Header, Hero, Error, Loader, Place, Market, Footer, Form, Modal};

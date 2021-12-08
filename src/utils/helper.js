@@ -4,12 +4,9 @@ import {
   RiUserLine,
   ImQuestion,
   TiDocumentText,
-  MdOutlineEdit,
-  MdDeleteOutline,
   MdOutlineStorefront,
   MdAttachMoney,
 } from '../icons/icons';
-import {PRODUCTS} from './constant';
 
 const headerList = [
   {id: 1, text: '홈', icon: <RiHome8Line />, path: '/'},
@@ -39,27 +36,6 @@ const placeList = [
   },
 ];
 
-const productsList = [
-  {
-    id: 1,
-    title: '올드카',
-    where: '운서동 · 1일전',
-    price: 10000,
-    icon1: <MdOutlineEdit />,
-    icon2: <MdDeleteOutline />,
-    img: PRODUCTS,
-  },
-  {
-    id: 2,
-    title: '올드카',
-    where: '운서동 · 1일전',
-    price: 10000,
-    icon1: <MdOutlineEdit />,
-    icon2: <MdDeleteOutline />,
-    img: PRODUCTS,
-  },
-];
-
 const formatPrice = (number) => {
   const newNumber = new Intl.NumberFormat('ko-KR', {
     style: 'currency',
@@ -70,4 +46,4 @@ const formatPrice = (number) => {
 
 const imgTypes = ['image/png', 'image/jpeg'];
 
-export {headerList, placeList, productsList, formatPrice, imgTypes};
+export {headerList, placeList, formatPrice, imgTypes};

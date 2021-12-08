@@ -19,3 +19,10 @@ export const SET_FILE_MSG = 'set-file-msg';
 export const UPDATE_FILTERS = 'update-filters';
 export const EMPTY_FORM = 'empty-form';
 export const PUT_FORM_TO_DB = 'put-form-to-db';
+
+export const IS_EDITTING = 'is-editting';
+export const EDIT_MODE = 'edit-mode';
+export const EDIT_DATA = 'edit-data';
+
+export const PROGRESS = 'progress';
+export const LIKE_BTN = 'like-btn';

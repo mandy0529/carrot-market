@@ -1,4 +1,5 @@
 import {
+  EDIT_MODE,
   EMPTY_FORM,
   SET_ERROR_FILE,
   SET_FILE,
@@ -16,6 +17,9 @@ export const ProductsInitialState = {
     price: '',
     text: '',
   },
+  editMode: false,
+  editId: '',
+  like: 0,
 };
 
 const ProductsReducer = (state, action) => {
@@ -54,6 +58,29 @@ const ProductsReducer = (state, action) => {
           price: '',
           text: '',
         },
+        file: {
+          ...state.file,
+          data: '',
+          message: '',
+        },
+        editMode: false,
+        editId: '',
+      };
+
+    case EDIT_MODE:
+      const {title, category, price, text, url, id} = action.payload;
+      return {
+        ...state,
+        valueContent: {
+          ...state.valueContent,
+          title,
+          category,
+          price,
+          text,
+          url,
+        },
+        editId: id,
+        editMode: true,
       };
 
     default:

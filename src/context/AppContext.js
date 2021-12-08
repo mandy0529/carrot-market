@@ -1,19 +1,11 @@
 import React, {useContext, useReducer} from 'react';
-import {CLOSE_MODAL, HIDE_DOT, SHOW_DOT, SHOW_MODAL} from '../utils/action';
+import {CLOSE_MODAL, SHOW_MODAL} from '../utils/action';
 import AppReducer, {initialState} from '../reducers/AppReducer';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({children}) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-
-  const showDotPopUp = () => {
-    dispatch({type: SHOW_DOT});
-  };
-
-  const hideDotPopUp = () => {
-    dispatch({type: HIDE_DOT});
-  };
 
   const openModal = () => {
     dispatch({type: SHOW_MODAL});
@@ -35,8 +27,6 @@ const AppProvider = ({children}) => {
     <AppContext.Provider
       value={{
         ...state,
-        showDotPopUp,
-        hideDotPopUp,
         openModal,
         closeModal,
         handleClick,

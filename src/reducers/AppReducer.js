@@ -1,4 +1,4 @@
-import {CLOSE_MODAL, HIDE_DOT, SHOW_DOT, SHOW_MODAL} from '../utils/action';
+import {CLOSE_MODAL, OFF_LOADING, SHOW_MODAL} from '../utils/action';
 
 export const initialState = {
   showDot: false,
@@ -7,11 +7,8 @@ export const initialState = {
 
 const AppReducer = (state, action) => {
   switch (action.type) {
-    case SHOW_DOT:
-      return {...state, showDot: true};
-
-    case HIDE_DOT:
-      return {...state, showDot: false};
+    case OFF_LOADING:
+      return {...state, loading: false};
 
     case SHOW_MODAL:
       return {...state, isModalOpen: true};

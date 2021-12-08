@@ -21,7 +21,7 @@ import {
 } from 'react-icons/ri';
 import {ImQuestion} from 'react-icons/im';
 import {TiDocumentText} from 'react-icons/ti';
-import {AiOutlineCamera, AiOutlineLike} from 'react-icons/ai';
+import {AiOutlineCamera, AiOutlineLike, AiOutlineDislike} from 'react-icons/ai';
 
 export {
   RiHome8Line,
@@ -43,4 +43,5 @@ export {
   MdClose,
   MdOutlineStorefront,
   MdAttachMoney,
+  AiOutlineDislike,
 };
