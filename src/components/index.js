@@ -8,7 +8,6 @@ import Market from './Market';
 import Footer from './Footer';
 import Form from './Form';
 import Products from './Products';
-import SingleProduct from './SingleProduct';
 import Modal from './Modal';
 import ProgressBar from './ProgressBar';
 export {
@@ -22,7 +21,6 @@ export {
   Footer,
   Form,
   Products,
-  SingleProduct,
   Modal,
   ProgressBar,
 };

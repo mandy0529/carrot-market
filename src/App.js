@@ -1,13 +1,11 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-
-import {Footer, Header, Login, Products, SingleProduct} from './components';
-import {useGlobalContext} from './context/AppContext';
-import {CreateComment, Home} from './pages';
-import styled from 'styled-components';
+import {Footer, Header, Login, Products} from './components';
+import {CreateComment, Home, MyProduct, SingleProduct} from './pages';
+import {useUserContext} from './context/UserContext';
 
 function App() {
-  const {user} = useGlobalContext();
+  const {user} = useUserContext();
   const isLoggedIn =
     user && user.name !== '' && user.photo !== '' && user.email !== '';
 
@@ -21,13 +19,11 @@ function App() {
           element={isLoggedIn ? <CreateComment /> : <Login />}
         />
         <Route
-          path="/products"
-          element={isLoggedIn ? <Products /> : <Login />}
+          path="/my-product"
+          element={isLoggedIn ? <MyProduct /> : <Login />}
         />
-        <Route
-          path="/detail"
-          element={isLoggedIn ? <SingleProduct /> : <Login />}
-        />
+        <Route path="/products" element={<Products />} />
+        <Route path="/detail" element={<SingleProduct />} />
       </Routes>
       <Footer />
     </BrowserRouter>

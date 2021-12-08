@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react';
-import {Link, useLocation, useParams} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 import {Error, Loader} from '.';
-import {useGlobalContext} from '../context/AppContext';
+import {useUserContext} from '../context/UserContext';
 import {HEADER_LOGO} from '../utils/constant';
 import {headerList} from '../utils/helper';
 
 const Header = () => {
-  const {user, loginAuth, error, logoutAuth, stayLogin, loading} =
-    useGlobalContext();
+  const {loading, error, user, loginAuth, logoutAuth, stayLogin} =
+    useUserContext();
+  const {pathname} = useLocation();
   const {name, photo, email} = user;
   const isLoggedIn = name !== '' && photo !== '' && email !== '';
-  const {pathname} = useLocation();
 
   useEffect(() => {
     stayLogin();

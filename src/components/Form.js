@@ -1,30 +1,42 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {AiOutlineCamera} from 'react-icons/ai';
 import styled from 'styled-components';
-import {ProgressBar} from '.';
-import {useGlobalContext} from '../context/AppContext';
+import {useProductsContext} from '../context/ProductsContext';
 
 function Form() {
   const {
-    file,
     handleImgUpload,
     updateValue,
-    handleSubmit,
     valueContent: {title, category, price, text},
-  } = useGlobalContext();
-
-  // useEffect(() => {
-  //   putFormToDb();
-  // }, []);
+    preview,
+    handleSubmit,
+  } = useProductsContext();
 
   return (
     <Wrapper>
       <form onSubmit={(e) => handleSubmit(e)} className="picture__text">
-        {file.data && (
+        {preview && (
           <div className="img-flex">
-            <ProgressBar />
+            <img className="file-img" src={preview} alt="preview-img" />
           </div>
         )}
+
+        <div className="picture__text-upload">
+          <div className="upload__info">
+            <AiOutlineCamera className="upload__icon" />
+          </div>
+          <label className="input-file-button" htmlFor="input-file">
+            업로드
+          </label>
+          <input
+            required
+            type="file"
+            id="input-file"
+            style={{display: 'none'}}
+            className="upload"
+            onChange={handleImgUpload}
+          />
+        </div>
 
         <input
           type="text"
@@ -65,22 +77,7 @@ function Form() {
           value={text}
           placeholder="올릴 게시글 내용을 작성해주세요. (가품 및 판매 금지 품목은 게시가 제한 될 수 있습니다.)"
         />
-        <div className="picture__text-upload">
-          <div className="upload__info">
-            <AiOutlineCamera className="upload__icon" />
-          </div>
-          <label className="input-file-button" htmlFor="input-file">
-            업로드
-          </label>
-          <input
-            required
-            type="file"
-            id="input-file"
-            style={{display: 'none'}}
-            className="upload"
-            onChange={handleImgUpload}
-          />
-        </div>
+
         <input className="submit" type="submit" value="완료" />
       </form>
     </Wrapper>
@@ -96,6 +93,16 @@ const Wrapper = styled.section`
   background: white;
   border-radius: 30px;
 
+  .img-flex {
+    display: flex;
+    margin: 2rem 0.5rem;
+    max-width: 800px;
+    min-width: 400px;
+    img {
+      height: 10em;
+      border-radius: 5px;
+    }
+  }
   input {
     border: none;
     padding: 1.5rem 0;
@@ -110,6 +117,7 @@ const Wrapper = styled.section`
     .picture__text-upload {
       display: flex;
       padding-bottom: 1rem;
+      border-bottom: 2px solid lightgray;
 
       .upload__info {
         margin: 0 0.7rem;

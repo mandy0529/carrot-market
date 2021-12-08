@@ -1,12 +1,13 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {productsList, formatPrice} from '../utils/helper';
 import {useProductsContext} from '../context/ProductsContext';
 import useStorage from '../hooks/useStorage';
 
-function Products() {
+function MyProduct() {
   const {
+    editProduct,
+    deleteProduct,
     file,
     valueContent: {title, category, price, text},
   } = useProductsContext();
@@ -22,23 +23,29 @@ function Products() {
 
   return (
     <Wrapper>
-      <h1>당근 마켓</h1>
+      <h1>나의 판매 목록</h1>
       <div>
         {productsList.map((item) => {
-          const {id, title, where, price, img} = item;
+          const {id, title, where, price, icon1, icon2, img} = item;
           return (
             <div key={id} id={id} className="products__list">
               <img src={img} alt={title} />
 
               <div className="products__list-info">
-                <div className="products__list-flex">
+                <div className="products__list-p">
                   <h3>{title}</h3>
-                  <Link to="/detail">
-                    <button>detail</button>
-                  </Link>
+                  <p>{where}</p>
+                  <h4>{formatPrice(price)}원</h4>
                 </div>
-                <p>{where}</p>
-                <h2>{formatPrice(price)}원</h2>
+
+                <div className="products__list-icons">
+                  <span onClick={editProduct} className="icons">
+                    {icon1}
+                  </span>
+                  <span onClick={deleteProduct} className="icons">
+                    {icon2}
+                  </span>
+                </div>
               </div>
             </div>
           );
@@ -52,46 +59,40 @@ const Wrapper = styled.div`
   min-height: 78vh;
   max-width: 50vw;
   padding-top: 6rem;
-  text-align: center;
+  text-align: left;
   margin: 2rem auto;
 
   img {
-    width: 300px;
-    height: 200px;
+    width: 200px;
+    height: 100px;
   }
   .products__list {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 3rem 2rem;
     border-bottom: 2px solid lightgray;
-    button {
-      max-width: 200px;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      background: #ffa468;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      font-weight: bold;
-      color: white;
-      transition: all 0.3s linear;
-      letter-spacing: 0.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin-left: 2rem;
-      &:hover {
-        transform: scale(0.97);
-        background: #fd7e35;
-      }
-    }
+
     .products__list-info {
-      margin-left: 3rem;
-      .products__list-flex {
+      margin-left: 2rem;
+
+      .products__list-icons {
+        margin-top: 1rem;
+        font-size: 1.4rem;
         display: flex;
-        width: 100%;
         align-items: center;
-        justify-content: center;
+        .icons {
+          margin-left: 0.3rem;
+          transition: all 0.3s linear;
+          cursor: pointer;
+          padding: 0.3rem;
+          border-radius: 10px;
+          &:hover {
+            background: #ff8c40;
+            color: white;
+            transform: scale(1.1);
+          }
+        }
       }
     }
   }
@@ -116,14 +117,20 @@ const Wrapper = styled.div`
       justify-content: flex-start;
       border-bottom: 2px solid transparent;
       padding: 1rem 0;
-      button {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.8rem;
-      }
       .products__list-info {
         margin-top: 0.5rem;
+        .products__list-icons {
+          font-size: 1.3rem;
+          margin-top: 1rem;
+          button {
+            margin: 0;
+          }
+          .icons {
+            margin-left: 0.3rem;
+          }
+        }
       }
     }
   }
 `;
-export default Products;
+export default MyProduct;

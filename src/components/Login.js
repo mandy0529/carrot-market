@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useGlobalContext} from '../context/AppContext';
+import {useUserContext} from '../context/UserContext';
 import {HERO1, HERO2, HERO3} from '../utils/constant';
 
 function Login() {
-  const {loading, loginAuth} = useGlobalContext();
+  const {loginAuth, loading} = useUserContext();
 
   if (loading) {
     return null;

@@ -1,16 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {useGlobalContext} from '../context/AppContext';
 import {MAIN1, MAIN2} from '../utils/constant';
 
 function Hero() {
-  const {loading} = useGlobalContext();
-
-  if (loading) {
-    return null;
-  }
-
   return (
     <Wrapper>
       <div className="hero__info-images">

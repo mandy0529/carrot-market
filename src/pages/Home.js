@@ -1,18 +1,11 @@
 import React from 'react';
-import {Hero, Loader, Market} from '../components';
-import {useGlobalContext} from '../context/AppContext';
+import {Hero, Market} from '../components';
 import Place from '../components/Place';
 import {Link} from 'react-router-dom';
 import {RiPencilLine} from 'react-icons/ri';
 import styled from 'styled-components';
 
 function Home() {
-  const {loading} = useGlobalContext();
-
-  if (loading) {
-    return <Loader />;
-  }
-
   return (
     <Wrapper>
       <Hero />

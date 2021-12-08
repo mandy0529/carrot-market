@@ -1,18 +1,9 @@
 import React from 'react';
-import {ImQuestion} from 'react-icons/im';
-import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import {useGlobalContext} from '../context/AppContext';
-import {HERO1, HERO2, PLACE1, PLACE2, PLACE3} from '../utils/constant';
+import {PLACE1, PLACE2, PLACE3} from '../utils/constant';
 import {placeList} from '../utils/helper';
 
 function Place() {
-  const {loading} = useGlobalContext();
-
-  if (loading) {
-    return null;
-  }
-
   return (
     <Wrapper>
       <div className="place__info-p">

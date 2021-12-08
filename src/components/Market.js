@@ -1,15 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import {useGlobalContext} from '../context/AppContext';
 import {MARKET1, MARKET2} from '../utils/constant';
 
 function Market() {
-  const {loading} = useGlobalContext();
-
-  if (loading) {
-    return null;
-  }
-
   return (
     <Wrapper>
       <div className="market__info-images">

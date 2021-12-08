@@ -9,13 +9,14 @@ import {
   MdOutlineEdit,
   MdDeleteOutline,
   MdClose,
+  MdOutlineStorefront,
+  MdAttachMoney,
 } from 'react-icons/md';
 import {
   RiUserLine,
   RiHome8Line,
   RiPencilLine,
   RiCloseFill,
-  RiStoreLine,
   RiBearSmileLine,
 } from 'react-icons/ri';
 import {ImQuestion} from 'react-icons/im';
@@ -34,11 +35,12 @@ export {
   TiDocumentText,
   AiOutlineCamera,
   RiCloseFill,
-  RiStoreLine,
   MdOutlineEdit,
   MdDeleteOutline,
   RiBearSmileLine,
   AiOutlineLike,
   BsThreeDotsVertical,
   MdClose,
+  MdOutlineStorefront,
+  MdAttachMoney,
 };

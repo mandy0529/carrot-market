@@ -4,16 +4,18 @@ import {
   RiUserLine,
   ImQuestion,
   TiDocumentText,
-  RiStoreLine,
   MdOutlineEdit,
   MdDeleteOutline,
+  MdOutlineStorefront,
+  MdAttachMoney,
 } from '../icons/icons';
 import {PRODUCTS} from './constant';
 
 const headerList = [
   {id: 1, text: '홈', icon: <RiHome8Line />, path: '/'},
-  {id: 2, text: '물건 팔기', icon: <RiStoreLine />, path: '/create'},
-  {id: 3, text: '나의 당근', icon: <RiUserLine />, path: '/products'},
+  {id: 2, text: '물건 팔기', icon: <MdAttachMoney />, path: '/create'},
+  {id: 3, text: '당근 마켓', icon: <MdOutlineStorefront />, path: '/products'},
+  {id: 4, text: '나의 당근', icon: <RiUserLine />, path: '/my-product'},
 ];
 
 const placeList = [

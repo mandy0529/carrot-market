@@ -3,15 +3,8 @@ import {RiCloseFill} from 'react-icons/ri';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 import {Form} from '../components';
-import {useGlobalContext} from '../context/AppContext';
 
 function CreateComment() {
-  const {loading} = useGlobalContext();
-
-  if (loading) {
-    return null;
-  }
-
   return (
     <Wrapper>
       <div className="create__header">
