@@ -17,7 +17,7 @@ const Wrapper = styled.nav`
       transform: scale(0.97);
     }
     img {
-      height: 40px;
+      height: 70px;
       transition: all 0.3s linear;
     }
   }
@@ -85,7 +85,7 @@ const Wrapper = styled.nav`
     padding: 2rem;
     .header__btn {
       img {
-        height: 30px;
+        height: 50px;
       }
     }
     .header__menu {

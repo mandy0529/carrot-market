@@ -44,7 +44,7 @@ function Form() {
             <AiOutlineCamera className="upload__icon" />
           </div>
           <label className="input-file-button" htmlFor="input-file">
-            {editMode ? '이미지를 변경할 수 없습니다.' : '업로드'}
+            {editMode ? '이미지는 변경할 수 없습니다.' : '업로드'}
           </label>
           <input
             disabled={editMode ? true : false}

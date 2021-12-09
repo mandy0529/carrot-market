@@ -11,8 +11,8 @@ import {
 const headerList = [
   {id: 1, text: '홈', icon: <RiHome8Line />, path: '/'},
   {id: 2, text: '물건 팔기', icon: <MdAttachMoney />, path: '/create'},
-  {id: 3, text: '당근 마켓', icon: <MdOutlineStorefront />, path: '/products'},
-  {id: 4, text: '나의 당근', icon: <RiUserLine />, path: '/my-product'},
+  {id: 3, text: '당당 마켓', icon: <MdOutlineStorefront />, path: '/products'},
+  {id: 4, text: '나의 마켓', icon: <RiUserLine />, path: '/my-product'},
 ];
 
 const placeList = [

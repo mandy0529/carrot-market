@@ -15,7 +15,7 @@ function Login() {
       <div className="login__info-p">
         <h1>
           당신 근처의
-          <br /> 당근마켓
+          <br /> 당당마켓
         </h1>
         <p>
           중고 거래부터 동네 정보까지, 이웃과 함께해요.
