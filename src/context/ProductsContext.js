@@ -1,5 +1,4 @@
-import React, {useContext, useEffect, useReducer} from 'react';
-import {useState} from 'react/cjs/react.development';
+import React, {useContext, useEffect, useReducer, useState} from 'react';
 import {imgTypes} from '../utils/helper';
 import ProductsReducer, {
   ProductsInitialState,
