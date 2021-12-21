@@ -7,8 +7,9 @@ const AppContext = React.createContext();
 const AppProvider = ({children}) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const openModal = () => {
-    dispatch({type: SHOW_MODAL});
+  const openModal = (e) => {
+    const url = e.target.src;
+    dispatch({type: SHOW_MODAL, payload: url});
   };
 
   const closeModal = () => {

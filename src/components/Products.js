@@ -6,7 +6,7 @@ import {useGlobalContext} from '../context/AppContext';
 import {formatPrice} from '../utils/helper';
 
 function Products({url, text, title, price, category, id, profile, userName}) {
-  const {openModal} = useGlobalContext();
+  const {openModal, isModalOpen} = useGlobalContext();
   const [like, setLike] = useState(0);
 
   const handleLike = () => {
@@ -17,10 +17,16 @@ function Products({url, text, title, price, category, id, profile, userName}) {
     if (like <= 0) return 0;
     setLike((prev) => prev - 1);
   };
+
   return (
     <div className="single-product" key={id} id={id}>
-      <img onClick={openModal} className="product-img" src={url} alt={title} />
-      <Modal url={url} />
+      <img
+        onClick={(e) => openModal(e)}
+        className="product-img"
+        src={url}
+        alt={title}
+      />
+      {isModalOpen && <Modal />}
 
       <div className="detail__user">
         <div className="detail__user-info">

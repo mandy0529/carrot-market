@@ -3,6 +3,7 @@ import {CLOSE_MODAL, OFF_LOADING, SHOW_MODAL} from '../utils/action';
 export const initialState = {
   showDot: false,
   isModalOpen: false,
+  targetUrl: '',
 };
 
 const AppReducer = (state, action) => {
@@ -11,7 +12,7 @@ const AppReducer = (state, action) => {
       return {...state, loading: false};
 
     case SHOW_MODAL:
-      return {...state, isModalOpen: true};
+      return {...state, isModalOpen: true, targetUrl: action.payload};
 
     case CLOSE_MODAL:
       return {...state, isModalOpen: false};
