@@ -74,6 +74,7 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 991px) {
     flex-direction: column;
+
     .place__info-p {
       margin: 2rem auto;
     }
@@ -90,6 +91,17 @@ const Wrapper = styled.div`
     p {
       letter-spacing: 0.1rem;
       font-size: 1.2rem;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    padding: 2rem 3rem;
+    .place__info-p {
+      h1 {
+        font-size: 1.7rem;
+      }
+      p {
+        font-size: 1rem;
+      }
     }
   }
 `;

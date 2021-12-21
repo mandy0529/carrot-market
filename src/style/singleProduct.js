@@ -95,6 +95,9 @@ const Wrapper = styled.div`
       }
     }
   }
+  @media screen and (max-width: 500px) {
+    padding: 2rem 0 2rem 0;
+  }
 `;
 
 export {Wrapper};

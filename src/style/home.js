@@ -31,5 +31,10 @@ const Wrapper = styled.div`
       z-index: 100;
     }
   }
+  @media screen and (max-width: 500px) {
+    .toggle-bar {
+      bottom: 70px;
+    }
+  }
 `;
 export {Wrapper};

@@ -63,7 +63,7 @@ const Wrapper = styled.section`
       outline: none;
       resize: none;
       margin: 2rem 0;
-      font-size: 1.3rem;
+      font-size: 1rem;
       border-bottom: 2px solid lightgray;
     }
     .submit {
@@ -87,23 +87,27 @@ const Wrapper = styled.section`
         transform: scale(0.97);
       }
     }
-    @media screen and (max-width: 991px) {
-      max-width: 500px;
-      padding: 0;
-      margin: 0;
-      background: white;
-      .text {
-        font-size: 0.9rem;
-        min-width: 400px;
-      }
-      .picture__text {
-        margin: 0 auto;
-      }
-      input {
-        font-size: 0.9rem;
-        background: white;
-      }
+  }
+  @media screen and (max-width: 991px) {
+    max-width: 500px;
+    padding: 2rem;
+    margin: 2rem;
+    background: white;
+    .text {
+      font-size: 0.9rem;
+      min-width: 200px;
     }
+    .picture__text {
+      margin: 0 auto;
+    }
+    input {
+      font-size: 0.9rem;
+      background: white;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    padding: 0.5rem;
+    margin: 0.5rem;
   }
 `;
 

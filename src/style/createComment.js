@@ -37,6 +37,15 @@ const Wrapper = styled.section`
       display: block;
     }
   }
+  @media screen and (max-width: 500px) {
+    padding-top: 3rem;
+    h1 {
+      font-size: 1.1rem;
+    }
+    .toggle-btn {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 export {Wrapper};

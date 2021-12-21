@@ -48,20 +48,21 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 991px) {
     flex-direction: column-reverse;
+    padding: 5rem 3rem;
     .hero__info-images {
       margin: 3rem 0;
       img {
-        height: 300px;
+        height: 200px;
       }
     }
 
     h1 {
       margin-top: 2rem;
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
     p {
       letter-spacing: 0.1rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
   }
 `;

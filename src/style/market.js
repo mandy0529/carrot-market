@@ -46,6 +46,20 @@ const Wrapper = styled.div`
       font-size: 1.2rem;
     }
   }
+  @media screen and (max-width: 500px) {
+    padding: 2rem 3rem;
+    h1 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    .market__info-images {
+      img {
+        height: 200px;
+      }
+    }
+  }
 `;
 
 export {Wrapper};

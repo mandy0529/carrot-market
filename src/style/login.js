@@ -68,7 +68,7 @@ const Wrapper = styled.div`
   @media screen and (max-width: 991px) {
     display: block;
     align-items: center;
-    height: 79.3vh;
+    height: 100vh;
     overflow-y: auto;
 
     .login__info-p {
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
 
       img {
         position: relative;
-        height: 400px;
+        height: 200px;
         &:nth-child(1),
         &:nth-child(2),
         &:nth-child(3) {
@@ -94,11 +94,30 @@ const Wrapper = styled.div`
     }
     h1 {
       font-size: 2.2rem;
-      margin: 0;
+      margin: 2rem;
     }
     p {
       letter-spacing: 0.1rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .login__info-images {
+      img {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+    button {
+      display: block;
+      margin: auto;
     }
   }
 `;

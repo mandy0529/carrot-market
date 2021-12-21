@@ -82,10 +82,11 @@ const Wrapper = styled.nav`
 
   @media screen and (max-width: 991px) {
     justify-content: space-between;
-    padding: 2rem;
+    padding: 0.5rem;
+    width: 100%;
     .header__btn {
       img {
-        height: 50px;
+        height: 30px;
       }
     }
     .header__menu {
@@ -103,7 +104,7 @@ const Wrapper = styled.nav`
       position: fixed;
       bottom: 0;
       left: 0;
-      padding: 1rem 0;
+      padding: 0;
       background: #ffa468;
       color: white;
       .fixed {
@@ -118,14 +119,25 @@ const Wrapper = styled.nav`
       }
     }
   }
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 500px) {
     .header__menu {
       .header__menu-list {
         flex-direction: column;
         text-align: center;
+        font-size: 1.5rem;
       }
       span {
-        font-size: 1rem;
+        display: none;
+      }
+    }
+  }
+  @media screen and (max-width: 1500px) {
+    .header__menu {
+      padding: 0.9rem 0;
+      .header__menu-list {
+        flex-direction: column;
+        text-align: center;
+        font-size: 1.5rem;
       }
     }
   }

@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     align-items: center;
     padding: 3rem 2rem;
     border-bottom: 2px solid lightgray;
-    border-radius: 5px;
+
     .products__list-info {
       margin-left: 3rem;
       text-align: center;
@@ -46,6 +46,7 @@ const Wrapper = styled.div`
     margin: 2rem;
     max-width: 80vw;
     min-width: 80vw;
+    min-height: 100vh;
     h1 {
       font-size: 1.5rem;
     }
@@ -71,6 +72,24 @@ const Wrapper = styled.div`
           .icons {
             margin-left: 0.3rem;
           }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 500px) {
+    padding-top: 2rem;
+    min-height: 100vh;
+    .products__list {
+      .products__list-info {
+        margin-left: 1rem;
+        h1 {
+          font-size: 1rem;
+        }
+        h4 {
+          font-size: 0.8rem;
+        }
+        .products__list-icons {
+          font-size: 1rem;
         }
       }
     }
