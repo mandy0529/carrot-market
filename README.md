@@ -17,14 +17,14 @@
     2. login , logout functions
     3. error, loader page
 - [x] context,reducer folder
-    1. appContext - appReducer => modal , click event control
-    2. productsContext- productsReducer => firebase products list   
+    - appContext - appReducer => modal , click event control
+    - productsContext- productsReducer => firebase products list   
         control
-    3. userContext- userReducer => firebase user login control
+    - userContext- userReducer => firebase user login control
 
--[x] icon, utils file folder 
+- [x] icon, utils file folder 
 - [x] reponsive mobile version 
-    1. main mobile menu created
-    2. max-width control
-    3. flex-direction : column 
--[x] styles folder - styled-components each file collected
+    - main mobile menu created
+    - max-width control
+    - flex-direction : column 
+- [x] styles folder - styled-components each file collected
