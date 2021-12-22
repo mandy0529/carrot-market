@@ -2,6 +2,9 @@
 
 * Carrot Market Clone React JS ( Firebase + React Router Dom + useContext + useReducer + styled-components)
 
+* ### 💡 아이디어 전략
+⇒  비대면 시국인 요즘, 당당하게 내 물건을 팔고, 다른 사람들이 팔 물건들을 보며 서로 조금이나마 소통하는 마켓을 당!당 하게 이용 할 수 있는 당근 마켓을 클론해서 나만의 스타일로 물건을 올릴 수 있는 소통의 장을 만들었습니다.
+
 - [x] firebase setup
 - [x] env 
 - [x] each Component setup
@@ -10,8 +13,18 @@
         - create form
         - my products list showing  
             - edit, delete, modal fuctions
-
+        - matket that have all products who got products list page
     2. login , logout functions
+    3. error, loader page
+- [x] context,reducer folder
+    1. appContext - appReducer => modal , click event control
+    2. productsContext- productsReducer => firebase products list   
+        control
+    3. userContext- userReducer => firebase user login control
+
+-[x] icon, utils file folder 
 - [x] reponsive mobile version 
     1. main mobile menu created
     2. max-width control
+    3. flex-direction : column 
+-[x] styles folder - styled-components each file collected
