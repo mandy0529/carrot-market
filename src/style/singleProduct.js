@@ -53,7 +53,7 @@ const Wrapper = styled.div`
     text-align: left;
     .text {
       margin: 1rem 0 0 0;
-      min-width: 300px;
+      min-width: 260px;
     }
     h4 {
       margin: 0;
