@@ -112,7 +112,7 @@ const Wrapper = styled.div`
         font-size: 1.7rem;
       }
       p {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     }
   }

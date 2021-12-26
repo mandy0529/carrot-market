@@ -50,6 +50,7 @@ const Wrapper = styled.div`
     padding: 2rem 3rem;
     h1 {
       font-size: 1.8rem;
+      margin-bottom: 2rem;
     }
     p {
       font-size: 0.8rem;

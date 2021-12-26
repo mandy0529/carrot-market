@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.section`
   min-height: 82.5vh;
-  padding-top: 7rem;
+  padding-top: 10rem;
   text-align: center;
   background: #fbf7f2;
 
