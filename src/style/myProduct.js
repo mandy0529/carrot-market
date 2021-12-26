@@ -6,7 +6,9 @@ const Wrapper = styled.div`
   padding-top: 6rem;
   text-align: left;
   margin: 4rem auto;
-
+  h1 {
+    font-size: 1.5rem;
+  }
   img {
     height: 150px;
     border-radius: 10px;
@@ -19,14 +21,15 @@ const Wrapper = styled.div`
     border-bottom: 2px solid lightgray;
 
     .products__list-info {
-      margin-left: 3rem;
-      text-align: center;
+      margin-left: 2rem;
+      text-align: left;
 
       .products__list-icons {
         margin-top: 1rem;
         font-size: 1.4rem;
         display: flex;
         align-items: center;
+
         .icons {
           margin-left: 0.3rem;
           transition: all 0.3s linear;
@@ -64,6 +67,7 @@ const Wrapper = styled.div`
       padding: 1rem 0;
       .products__list-info {
         margin-top: 0.5rem;
+        text-align: center;
         .products__list-icons {
           font-size: 1.3rem;
           margin-top: 1rem;
@@ -80,13 +84,18 @@ const Wrapper = styled.div`
   @media screen and (max-width: 500px) {
     padding-top: 2rem;
     min-height: 100vh;
+    max-width: 100vw;
     img {
       width: 130px;
       height: 80px;
     }
     .products__list {
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.5rem 0rem;
+
       .products__list-info {
-        margin-left: 1rem;
+        margin-left: 0rem;
         h1 {
           font-size: 1rem;
         }
@@ -95,6 +104,7 @@ const Wrapper = styled.div`
         }
         .products__list-icons {
           font-size: 1rem;
+          justify-content: center;
         }
       }
     }
