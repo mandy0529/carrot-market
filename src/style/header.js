@@ -65,6 +65,7 @@ const Wrapper = styled.nav`
       font-size: 1.2rem;
       border-bottom: 3px solid transparent;
       transition: all 0.3s linear;
+
       &:hover {
         border-bottom: 3px solid red;
       }
@@ -138,6 +139,7 @@ const Wrapper = styled.nav`
         flex-direction: column;
         text-align: center;
         font-size: 1.5rem;
+        padding: 0.3rem;
       }
     }
   }

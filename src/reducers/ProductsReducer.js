@@ -1,6 +1,7 @@
 import {
   EDIT_MODE,
   EMPTY_FORM,
+  NO_EDIT_MODE,
   SET_ERROR_FILE,
   SET_FILE,
   UPDATE_FILTERS,
@@ -81,6 +82,12 @@ const ProductsReducer = (state, action) => {
         },
         editId: id,
         editMode: true,
+      };
+
+    case NO_EDIT_MODE:
+      return {
+        ...state,
+        editMode: false,
       };
 
     default:

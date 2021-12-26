@@ -95,6 +95,18 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 500px) {
     padding: 2rem 3rem;
+    .place__menu {
+      flex-direction: column;
+      .place__menu-list {
+        margin: 1rem 1rem;
+      }
+      .list-p {
+        max-width: 100px;
+        font-size: 0.8rem;
+        letter-spacing: 0.07rem;
+        margin: 1.5rem auto;
+      }
+    }
     .place__info-p {
       h1 {
         font-size: 1.7rem;

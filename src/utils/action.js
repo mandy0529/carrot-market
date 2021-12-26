@@ -21,6 +21,7 @@ export const EMPTY_FORM = 'empty-form';
 export const PUT_FORM_TO_DB = 'put-form-to-db';
 
 export const IS_EDITTING = 'is-editting';
+export const NO_EDIT_MODE = 'no-edit-mode';
 export const EDIT_MODE = 'edit-mode';
 export const EDIT_DATA = 'edit-data';
 

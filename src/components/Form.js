@@ -17,12 +17,15 @@ function Form() {
     editMode,
     handleEditSubmit,
   } = useProductsContext();
+  const {noEditMode} = useProductsContext();
   const {user} = useUserContext();
 
   const dataSubmit = (e) => {
     e.preventDefault();
-    if (editMode) {
+    if (editMode === true) {
       handleEditSubmit();
+    } else if (editMode === false) {
+      noEditMode();
     } else {
       handleSubmit(user);
     }
@@ -96,8 +99,12 @@ function Form() {
           value={text}
           placeholder="올릴 게시글 내용을 작성해주세요. (가품 및 판매 금지 품목은 게시가 제한 될 수 있습니다.)"
         />
-
-        <input className="submit" type="submit" value="완료" />
+        <div className="submits_btn">
+          <input className="submit" type="submit" value="완료" />
+          {editMode && (
+            <input className="submit" type="submit" value="수정 취소" />
+          )}
+        </div>
       </form>
     </Wrapper>
   );

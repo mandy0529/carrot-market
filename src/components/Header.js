@@ -36,6 +36,7 @@ const Header = () => {
         <div className="header__menu">
           {headerList.map((item) => {
             const {id, text, icon, path} = item;
+
             return (
               <Link className="header__menu-link" id={id} key={id} to={path}>
                 <div

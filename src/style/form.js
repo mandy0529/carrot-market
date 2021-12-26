@@ -80,7 +80,7 @@ const Wrapper = styled.section`
       font-weight: bold;
       cursor: pointer;
       text-align: center;
-      margin: 3rem 0;
+      margin: 3rem 1rem;
       &:hover {
         color: white;
         background: #ffa468;
@@ -99,6 +99,9 @@ const Wrapper = styled.section`
     }
     .picture__text {
       margin: 0 auto;
+      .submit {
+        margin: 4rem 0.3rem;
+      }
     }
     input {
       font-size: 0.9rem;

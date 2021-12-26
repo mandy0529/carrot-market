@@ -10,6 +10,7 @@ import {
   SET_ERROR_FILE,
   SET_FILE,
   UPDATE_FILTERS,
+  NO_EDIT_MODE,
 } from '../utils/action';
 
 const ProductsContext = React.createContext();
@@ -33,6 +34,10 @@ const ProductsProvider = ({children}) => {
 
   const editProduct = async (item) => {
     dispatch({type: EDIT_MODE, payload: item});
+  };
+
+  const noEditMode = () => {
+    dispatch({type: NO_EDIT_MODE});
   };
 
   const handleEditSubmit = async () => {
@@ -140,6 +145,7 @@ const ProductsProvider = ({children}) => {
         updateValue,
         images,
         handleEditSubmit,
+        noEditMode,
       }}
     >
       {children}
