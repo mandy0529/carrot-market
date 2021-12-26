@@ -18,6 +18,7 @@ export const ProductsInitialState = {
     price: '',
     text: '',
   },
+
   editMode: false,
   editId: '',
   like: 0,

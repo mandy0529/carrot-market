@@ -4,12 +4,12 @@ import styled from 'styled-components';
 function Error() {
   return (
     <Wrapper>
-      <h3>목록이 없습니다.</h3>
+      <h3>판매 목록이 없습니다.</h3>
     </Wrapper>
   );
 }
 const Wrapper = styled.div`
-  margin-top: 10rem;
+  margin-top: 20rem;
   text-align: center;
   min-height: 78vh;
 `;

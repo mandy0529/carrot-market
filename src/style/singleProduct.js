@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  padding: 6rem 0 2rem 0;
-  min-height: 78vh;
+  padding: 6rem 0 0.5rem 0;
+  min-height: 74vh;
   max-width: 40vw;
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
   text-align: center;
   p,
   h4 {
@@ -13,7 +13,9 @@ const Wrapper = styled.div`
   .single-product {
     width: 100%;
     padding: 2rem 0;
-    border-bottom: 3px dotted black;
+    &:not:nth-child(1) {
+      border-bottom: 3px dotted black;
+    }
   }
   .product-img {
     position: relative;

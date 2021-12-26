@@ -4,7 +4,6 @@ import {useProductsContext} from '../context/ProductsContext';
 import {MdOutlineEdit, MdDeleteOutline} from '../icons/icons';
 import {useUserContext} from '../context/UserContext';
 import {useNavigate} from 'react-router';
-import {Error} from '../components';
 import {Wrapper} from '../style/myProduct';
 
 function MyProduct() {
@@ -18,13 +17,11 @@ function MyProduct() {
     navigate('/create');
     editProduct(item);
   };
+
   const handleDelete = (item) => {
     deleteProduct(item);
   };
 
-  if (images.length === 0) {
-    return <Error />;
-  }
   return (
     <Wrapper>
       <h1>나의 판매 목록</h1>

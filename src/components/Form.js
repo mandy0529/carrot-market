@@ -17,15 +17,12 @@ function Form() {
     editMode,
     handleEditSubmit,
   } = useProductsContext();
-  const {noEditMode} = useProductsContext();
   const {user} = useUserContext();
 
   const dataSubmit = (e) => {
     e.preventDefault();
-    if (editMode === true) {
+    if (editMode) {
       handleEditSubmit();
-    } else if (editMode === false) {
-      noEditMode();
     } else {
       handleSubmit(user);
     }

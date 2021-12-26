@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const Wrapper = styled.section`
   min-height: calc(80vh - 7rem);
   max-width: 800px;
-  padding: 2rem 4rem;
+  padding: 2rem 4rem 0 4rem;
   text-align: center;
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
   background: white;
   border-radius: 30px;
 

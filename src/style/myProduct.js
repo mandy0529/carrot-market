@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  min-height: 78vh;
+  min-height: 71.5vh;
   max-width: 50vw;
   padding-top: 6rem;
   text-align: left;
-  margin: 2rem auto;
+  margin: 4rem auto;
 
   img {
     height: 150px;
