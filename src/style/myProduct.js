@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 
   img {
     height: 150px;
+    border-radius: 10px;
   }
   .products__list {
     display: flex;
@@ -79,6 +80,10 @@ const Wrapper = styled.div`
   @media screen and (max-width: 500px) {
     padding-top: 2rem;
     min-height: 100vh;
+    img {
+      width: 130px;
+      height: 80px;
+    }
     .products__list {
       .products__list-info {
         margin-left: 1rem;

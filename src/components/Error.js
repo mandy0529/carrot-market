@@ -12,5 +12,8 @@ const Wrapper = styled.div`
   margin-top: 20rem;
   text-align: center;
   min-height: 78vh;
+  @media screen and (max-width: 768px) {
+    margin-top: 10rem;
+  }
 `;
 export default Error;

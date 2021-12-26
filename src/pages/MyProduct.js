@@ -5,6 +5,7 @@ import {MdOutlineEdit, MdDeleteOutline} from '../icons/icons';
 import {useUserContext} from '../context/UserContext';
 import {useNavigate} from 'react-router';
 import {Wrapper} from '../style/myProduct';
+import {Error} from '../components';
 
 function MyProduct() {
   const navigate = useNavigate();
@@ -22,6 +23,9 @@ function MyProduct() {
     deleteProduct(item);
   };
 
+  if (images.length === 0) {
+    return <Error />;
+  }
   return (
     <Wrapper>
       <h1>나의 판매 목록</h1>
