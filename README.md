@@ -28,3 +28,9 @@
     - 내가 로그인 한 계정에서만 내 게시물을 나만이 수정하고, 삭제할 수 있는 기능
     - 다른 계정으로 로그인 한 사람들의 판매 내역들을 전부 볼 수 있는 전체 마켓 기능
 
+## 🖼 Screenshots
+<div align="center">
+    <img width="450" src="https://user-images.githubusercontent.com/59499779/149332579-a70c3ee9-ea47-4581-b5b4-48de42c7c570.png">    
+    <img width="450" src="https://user-images.githubusercontent.com/59499779/149332601-6ced0344-2e9f-48a3-a70c-af65c49aa546.png">
+    <img width="450" src="https://user-images.githubusercontent.com/59499779/149332604-e4034fc2-c56e-497d-9afd-aca507e2a391.png">
+</div>
